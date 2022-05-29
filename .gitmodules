@@ -1,15 +1,15 @@
 [submodule "AdventOfCode2019"]
-	path = AdventOfCode2019
+	path = Year2019
 	url = git@github.com:mMosiur/AdventOfCode2019.git
 [submodule "AdventOfCode2020"]
-	path = AdventOfCode2020
+	path = Year2020
 	url = git@github.com:mMosiur/AdventOfCode2020.git
 [submodule "AdventOfCode2021"]
-	path = AdventOfCode2021
+	path = Year2021
 	url = git@github.com:mMosiur/AdventOfCode2021.git
 [submodule "AdventOfCodeAbstractions"]
-	path = AdventOfCodeAbstractions
+	path = Abstractions
 	url = git@github.com:mMosiur/AdventOfCodeAbstractions.git
 [submodule "AdventOfCodeDayTemplate"]
-	path = AdventOfCodeDayTemplate
+	path = DayTemplate
 	url = git@github.com:mMosiur/AdventOfCodeDayTemplate.git
