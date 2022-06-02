@@ -1,3 +1,6 @@
+[submodule "AdventOfCode2018"]
+	path = Year2018
+	url = git@github.com:mMosiur/AdventOfCode2018.git
 [submodule "AdventOfCode2019"]
 	path = Year2019
 	url = git@github.com:mMosiur/AdventOfCode2019.git
