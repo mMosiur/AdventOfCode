@@ -1,0 +1,30 @@
+name: Update submodules
+
+on:
+  schedule:
+    - cron: 0 4 * * *
+  repository_dispatch:
+    types: [ update-submodules ]
+  workflow_dispatch:
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        submodule: [ Abstractions, DayTemplate, Year2018, Year2019, Year2020, Year2021 ]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          submodules: true
+      - name: Checkout submodule to latest main state
+        run: git -C ${{ matrix.submodule }} checkout main
+      - name: Create pull request with changes
+        with:
+          commit-message: Automated updated to submodule ${{ matrix.submodule }}
+          branch: update-${{ matrix.submodule }}-submodule
+          delete-branch: true
+          title: Update ${{ matrix.submodule }} submodule
+          body: Automated update of ${{ matrix.submodule }} submodule to its latest version
