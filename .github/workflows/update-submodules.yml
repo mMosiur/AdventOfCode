@@ -1,14 +1,14 @@
-name: Update submodules
+name: Check submodules updates
 
 on:
   schedule:
     - cron: 0 4 * * *
   repository_dispatch:
-    types: [ update-submodules ]
+    types: [ check-submodules ]
   workflow_dispatch:
 
 jobs:
-  update-submodules:
+  check-submodules:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,6 +22,7 @@ jobs:
       - name: Checkout submodule to latest main state
         run: git -C ${{ matrix.submodule }} checkout main
       - name: Create pull request with changes
+        uses: peter-evans/create-pull-request@v4
         with:
           commit-message: Automated updated to submodule ${{ matrix.submodule }}
           branch: update-${{ matrix.submodule }}-submodule
