@@ -13,6 +13,9 @@
 [submodule "AdventOfCodeAbstractions"]
 	path = Abstractions
 	url = git@github.com:mMosiur/AdventOfCodeAbstractions.git
+[submodule "AdventOfCodeCommon"]
+	path = Common
+	url = git@github.com:mMosiur/AdventOfCodeCommon.git
 [submodule "AdventOfCodeDayTemplate"]
 	path = DayTemplate
 	url = git@github.com:mMosiur/AdventOfCodeDayTemplate.git
