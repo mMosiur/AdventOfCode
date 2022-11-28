@@ -10,6 +10,9 @@
 [submodule "AdventOfCode2021"]
 	path = Year2021
 	url = git@github.com:mMosiur/AdventOfCode2021.git
+[submodule "AdventOfCode2022"]
+	path = Year2022
+	url = git@github.com:mMosiur/AdventOfCode2022.git
 [submodule "AdventOfCodeAbstractions"]
 	path = Abstractions
 	url = git@github.com:mMosiur/AdventOfCodeAbstractions.git
