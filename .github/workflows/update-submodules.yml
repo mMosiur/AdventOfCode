@@ -1,0 +1,46 @@
+name: Check submodules updates
+
+on:
+  schedule:
+    - cron: 0 4 * * *
+  repository_dispatch:
+    types: [ check-submodules ]
+  workflow_dispatch:
+
+jobs:
+  check-submodules:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        submodule:
+          - Abstractions
+          - Common
+          - DayTemplate
+          - Year2018
+          - Year2019
+          - Year2020
+          - Year2021
+          - Year2022
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          submodules: true
+      - name: Checkout submodule to latest main state
+        run: git -C ${{ matrix.submodule }} checkout main
+      - name: Get commit hash after submodule update
+        run: echo "COMMIT_HASH=$(git -C ${{ matrix.submodule }} rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Create pull request with changes
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: Updated ${{ matrix.submodule }} submodule to ${{ env.COMMIT_HASH }}
+          branch: update-${{ matrix.submodule }}-submodule
+          delete-branch: true
+          title: Update ${{ matrix.submodule }} submodule
+          body: Automated update of ${{ matrix.submodule }} submodule to its latest version
+          labels: |
+            dependencies
+            submodules
+          assignees: mMosiur
+          reviewers: mMosiur
