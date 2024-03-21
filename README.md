@@ -14,4 +14,5 @@ as well as the repositories of each AoC event I have participated.
 - [x] [2019](https://github.com/mMosiur/AdventOfCode2019) - 50:star:
 - [x] [2020](https://github.com/mMosiur/AdventOfCode2020) - 50:star:
 - [x] [2021](https://github.com/mMosiur/AdventOfCode2021) - 50:star:
-- [ ] [2022](https://github.com/mMosiur/AdventOfCode2022) - 31:star:
+- [ ] [2022](https://github.com/mMosiur/AdventOfCode2022) - 32:star:
+- [ ] [2023](https://github.com/mMosiur/AdventOfCode2023) - 12:star:
