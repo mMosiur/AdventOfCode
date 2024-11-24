@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         submodule:
-          - Abstractions
           - Common
           - DayTemplate
           - Year2018
