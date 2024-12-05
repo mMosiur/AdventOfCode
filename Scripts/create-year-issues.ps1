@@ -35,7 +35,7 @@ Write-Host "Repository: $repository"
 Write-Host "In scope: days from $FirstDay to $LastDay"
 Write-Host "Assigning to: $Assignee"
 Write-Host "Adding to project: $ProjectName"
-Write-Host "Adding to milestone: $Milestone"
+Write-Host "Adding to milestone: $Milestone (note that this milestone needs to already exist)"
 
 # Ask user for confirmation, default to no
 $confirmation = Read-Host "Do you want to continue? (y/N)"
@@ -48,7 +48,7 @@ for ($i = $FirstDay; $i -le $LastDay; $i++) {
     $issueTitle = "Solve day $i"
 
     # Check if issue with the same title already exists
-    $issueExists = gh issue list --repo "$repository" --state "all" --search "$issueTitle" --json "title" | ConvertFrom-Json
+    $issueExists = gh issue list --repo "$repository" --state "all" --search "'$issueTitle' in:title" --json "title" | ConvertFrom-Json
     if ($issueExists) {
         Write-Host "Issue '$issueTitle' already exists, skipping"
         continue
